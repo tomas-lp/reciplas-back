@@ -36,12 +36,13 @@ const getProductoById = (req, res) => {
 // Agregar un nuevo producto
 const addProducto = (req, res) => {
   const nombre = req.body.nombre;
-  const stock = req.body.stock;
-  const precioVenta = req.body.precioVenta;
-  const categoria = req.body.categoria;
+  const cantidad = req.body.cantidad;
+  const descripcion = req.body.descripcion;
+  const fecha_actualizacion = req.body.fecha_actualizacion;
+  const precio = req.body.precio;
   db.query(
-    "INSERT INTO productos (nombre, stock, precioVenta, categoria, fecha_actualizacion) VALUES (?, ?, ?, ?, CURDATE())",
-    [nombre, stock, precioVenta, categoria],
+    "INSERT INTO productos (nombre, cantidad, descripcion, fecha_actualizacion, precio) VALUES (?, ?, ?, CURDATE(), ?)",
+    [nombre, cantidad, descripcion, fecha_actualizacion, precio],
     (err, results) => {
       if (err) {
         console.error("Error:", err);
@@ -73,14 +74,14 @@ const deleteProducto = (req, res) => {
 //Modificar un producto
 const updateProducto = (req, res) => {
   const nombre = req.body.nombre;
-  const stock = req.body.stock;
-  const precioVenta = req.body.precioVenta;
-  const categoria = req.body.categoria;
-  const fechaActualizacion = req.body.fechaActualizacion;
+  const cantidad = req.body.cantidad;
+  const descripcion = req.body.descripcion;
+  const fecha_actualizacion = req.body.fecha_actualizacion;
+  const precio = req.body.precio;
   const id = req.params.id;
   db.query(
-    "UPDATE productos SET nombre = ?, stock = ?, precioVenta = ?, categoria = ?, fecha_actualizacion = ? WHERE productos.id = ? ",
-    [nombre, stock, precioVenta, categoria, fechaActualizacion, id],
+    "UPDATE productos SET nombre = ?, cantidad = ?, descripcion = ?, fecha_actualizacion = ?, precio = ? WHERE productos.id = ? ",
+    [nombre, cantidad, descripcion, fecha_actualizacion, precio, id],
     (err, results) => {
       if (err) {
         console.error("Error al actualizar el producto:", err);

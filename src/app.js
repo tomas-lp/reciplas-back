@@ -2,8 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const ventasRouter = require('./routes/ventasRouter');
-const comprasRouter = require('./routes/comprasRouter');
+const materiaPrimaRouter = require('./routes/materiaPrimaRouter');
 const productosRouter = require('./routes/productosRouter');
 const cors = require("cors");
 
@@ -17,11 +16,8 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 // Consultas
 
-app.use("/api/ventas", ventasRouter);
-app.use("/api/compras", comprasRouter);
+app.use("/api/materiaprima", materiaPrimaRouter);
 app.use("/api/productos", productosRouter);
-
-
 
 // Arrancar Servidor
 app.listen(PORT, () => {
