@@ -38,11 +38,10 @@ const addProducto = (req, res) => {
   const nombre = req.body.nombre;
   const cantidad = req.body.cantidad;
   const descripcion = req.body.descripcion;
-  const fecha_actualizacion = req.body.fecha_actualizacion;
   const precio = req.body.precio;
   db.query(
     "INSERT INTO productos (nombre, cantidad, descripcion, fecha_actualizacion, precio) VALUES (?, ?, ?, CURDATE(), ?)",
-    [nombre, cantidad, descripcion, fecha_actualizacion, precio],
+    [nombre, cantidad, descripcion, precio],
     (err, results) => {
       if (err) {
         console.error("Error:", err);

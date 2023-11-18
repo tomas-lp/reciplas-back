@@ -44,7 +44,7 @@ const addMateriaPrima = (req, res) => {
   const fecha_actualizacion = req.body.fecha_actualizacion;
   db.query(
     "INSERT INTO materias_primas (id, nombre, cantidad, descripcion, cantidad_min, fecha_actualizacion) VALUES (?, ?, ?, ?, ?, CURDATE())",
-    [id, nombre, cantidad, descripcion, fecha_actualizacion],
+    [id, nombre, cantidad, descripcion, cantidad_min],
     (err, results) => {
       if (err) {
         console.error("Error:", err);
