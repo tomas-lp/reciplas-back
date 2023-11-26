@@ -2,15 +2,15 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const materiaPrimaRouter = require('./routes/materiaPrimaRouter');
-const productosRouter = require('./routes/productosRouter');
+const materiaPrimaRouter = require("./routes/materiaPrimaRouter");
+const productosRouter = require("./routes/productosRouter");
 const cors = require("cors");
 
 // Puerto
 const PORT = process.env.PORT || 4000;
 
 // Middlewares
-app.use(cors())
+app.use(cors());
 app.use(express.json({ limit: "10mb", extended: true }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 

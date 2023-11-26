@@ -2,11 +2,11 @@ require("dotenv").config();
 const mysql = require("mysql");
 
 var db = mysql.createConnection({
-  database: process.env.DATABASE_NAME || "reciplas",
-  host: process.env.DATABASE_HOST || "127.0.0.1",
-  user: process.env.DATABASE_USER || "root",
-  password: process.env.DATABASE_PASSWORD || "",
-  port: process.env.DATABASE_PORT || "3306",
+  database: process.env.MYSQLDATABASE || "reciplas",
+  host: process.env.MYSQLHOST || "127.0.0.1",
+  user: process.env.MYSQLUSER || "root",
+  password: process.env.MYSQLPASSWORD || "",
+  port: process.env.MYSQLPORT || "3306",
 });
 
 db.connect((err) => {
